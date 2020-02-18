@@ -1,5 +1,4 @@
 # ipLocnTest
-Get maps in winforms without API (sorta)
 
 <p align="center">
   <img src="ipLocnTest/qs.png" width="800">
