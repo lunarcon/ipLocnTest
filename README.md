@@ -13,7 +13,7 @@ Get decently featured maps in .NET, with no Map API involved on your end!
 
 ## Latest Additions
 <ul>
-<li>Added circular Navigation controls for static map. 🆕 *Now they are dark.*
+  <li>Added circular Navigation controls for static map. 🆕 <i>Now they are dark.</i>
 </ul><br>
 <p align = "center">
   <img src="ipLocnTest/nv.png" width="400">
