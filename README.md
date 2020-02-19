@@ -4,7 +4,7 @@
   <img src="ipLocnTest/qs.png" width="800">
 </p>
 
-- Supports Aerial and Regular view with and without labels (Regular view with labels only).
+- Supports Satellite view (with and without lables) and Regular view (with labels).
 - Default Draggable (Through left mouse button) and Zoomable (Through Scroll Wheel), But also provides static mode (higher resolution) (with buttons for zoom, etc)
 - Navigates to given coordinates
 - Supports Geolocation (PS: sometimes it doesn't work on the first try)(also your location should be on)
@@ -27,8 +27,8 @@ Put following code inside main class
             If Watcher.Position.Location.IsUnknown Then
                 txtlat = "Cannot find location data"
             Else
-                txtlat = Watcher.Position.Location.Latitude.ToString() '.Substring(0, 7)
-                txtlong = Watcher.Position.Location.Longitude.ToString() '.Substring(0, 7)
+                txtlat = Watcher.Position.Location.Latitude.ToString()
+                txtlong = Watcher.Position.Location.Longitude.ToString()
             End If
         End If       
         If Math.Abs(Val(txtlat)) > 0 Then
