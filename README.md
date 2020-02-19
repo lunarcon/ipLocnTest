@@ -15,7 +15,8 @@
   <img src="ipLocnTest/nav.png" width="150">
 </p>
 - Added Navigation controls for static map.<br>
-- Improved zoom in static map.
+- Improved zoom in static map.<br>
+- Added Navigation hints to toolbar.
  
 ## Geolocation - example
 
