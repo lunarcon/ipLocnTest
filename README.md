@@ -12,18 +12,22 @@ Get decently featured maps in .NET, with no Map API involved on your end!
 - Saves image directly to your desktop
 
 ## Latest Additions
-- Added circular Navigation controls for static map. 🆕 *Now they are dark.*<br>
+Added circular Navigation controls for static map. 🆕 *Now they are dark.*<br>
 <p align = "left">
   <img src="ipLocnTest/nv.png" width="250">
-</p><br>- 🆕 Menu items now have icons.<br><br>
+</p><br>
+<ul>
+<li>🆕 Menu items now have icons.
+</ul><br><br>
 <p align = "left">
   <img src="ipLocnTest/nbar.png" width="250">
 </p>
-- Improved zoom in static map.<br>
-- Added Navigation hints to toolbar.<br>
-- Minor design change.<br>
-- Added search tip.
- 
+<ul>
+<li> Improved zoom in static map.<br>
+<li> Added Navigation hints to toolbar.<br>
+<li> Minor design change.<br>
+<li> Added search tip.
+</ul><br>
 ## Geolocation - example
 
     Imports System.Device.Location
