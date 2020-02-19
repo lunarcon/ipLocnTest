@@ -15,14 +15,14 @@ Get decently featured maps in .NET, with no Map API involved on your end!
 <ul>
 <li>Added circular Navigation controls for static map. 🆕 *Now they are dark.*
 </ul><br>
-<p align = "left">
-  <img src="ipLocnTest/nv.png" width="250">
+<p align = "center">
+  <img src="ipLocnTest/nv.png" width="400">
 </p><br>
 <ul>
 <li>🆕 Menu items now have icons.
 </ul><br>
-<p align = "left">
-  <img src="ipLocnTest/nbar.png" width="250">
+<p align = "center">
+  <img src="ipLocnTest/nbar.png" width="400">
 </p>
 <ul>
 <li> Improved zoom in static map.<br>
