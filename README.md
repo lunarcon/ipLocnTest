@@ -11,12 +11,11 @@
 - Saves image directly to your desktop
 
 ## Latest Additions
-<p>
-  <img src="ipLocnTest/nav.png" width="100">
+<p align = "left">
+  <img src="ipLocnTest/nav.png" width="150">
 </p>
 - Added Navigation controls for static map.
-- Improved Zoom for static map
-
+ - Improved zoom in static map.
 ## Geolocation - example
 
     Imports System.Device.Location
