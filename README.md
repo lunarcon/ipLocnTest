@@ -12,6 +12,9 @@
 ## Geolocation - example
 
     Imports System.Device.Location
+
+Put this code inside main class
+
     Dim txtlat As string,txtlong as string
     Private Sub LocateMe()
          Watcher = New GeoCoordinateWatcher()
@@ -20,7 +23,6 @@
     End Sub
     Private Sub Watcher_StatusChanged(ByVal sender As Object, ByVal e As GeoPositionStatusChangedEventArgs)
         If e.Status = GeoPositionStatus.Ready Then
-
             If Watcher.Position.Location.IsUnknown Then
                 txtlat = "Cannot find location data"
             Else
