@@ -69,6 +69,7 @@ Partial Class Form1
         '
         'Titlebar
         '
+        Me.Titlebar.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Titlebar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.Titlebar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator1, Me.ToolStripDropDownButton1, Me.ToolStripDropDownButton2, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripSeparator4, Me.ZmIn, Me.ZmOu, Me.Sept, Me.ToolStripLabel1, Me.lbe})
         Me.Titlebar.Location = New System.Drawing.Point(0, 0)
@@ -81,10 +82,11 @@ Partial Class Form1
         'ToolStripButton1
         '
         Me.ToolStripButton1.AutoToolTip = False
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(71, 22)
+        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton1.Text = "Save Image"
         Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay
         '
@@ -95,64 +97,65 @@ Partial Class Form1
         '
         'ToolStripDropDownButton1
         '
-        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeMapStyleToolStripMenuItem, Me.ToolStripSeparator3, Me.StaticMapFasterToolStripMenuItem})
+        Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(89, 22)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(29, 22)
         Me.ToolStripDropDownButton1.Text = "Map Options"
         '
         'ChangeMapStyleToolStripMenuItem
         '
         Me.ChangeMapStyleToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SatelliteToolStripMenuItem, Me.RoadToolStripMenuItem, Me.ToolStripSeparator2, Me.TrafficToolStripMenuItem})
         Me.ChangeMapStyleToolStripMenuItem.Name = "ChangeMapStyleToolStripMenuItem"
-        Me.ChangeMapStyleToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChangeMapStyleToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.ChangeMapStyleToolStripMenuItem.Text = "Change Map Style"
         '
         'SatelliteToolStripMenuItem
         '
         Me.SatelliteToolStripMenuItem.Name = "SatelliteToolStripMenuItem"
-        Me.SatelliteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SatelliteToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.SatelliteToolStripMenuItem.Text = "Satellite"
         '
         'RoadToolStripMenuItem
         '
         Me.RoadToolStripMenuItem.Name = "RoadToolStripMenuItem"
-        Me.RoadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RoadToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.RoadToolStripMenuItem.Text = "Regular"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(112, 6)
         '
         'TrafficToolStripMenuItem
         '
         Me.TrafficToolStripMenuItem.CheckOnClick = True
         Me.TrafficToolStripMenuItem.Name = "TrafficToolStripMenuItem"
-        Me.TrafficToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TrafficToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.TrafficToolStripMenuItem.Text = "Labels"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(167, 6)
         '
         'StaticMapFasterToolStripMenuItem
         '
         Me.StaticMapFasterToolStripMenuItem.CheckOnClick = True
         Me.StaticMapFasterToolStripMenuItem.Name = "StaticMapFasterToolStripMenuItem"
-        Me.StaticMapFasterToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StaticMapFasterToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.StaticMapFasterToolStripMenuItem.Text = "Static Map"
         '
         'ToolStripDropDownButton2
         '
-        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1, Me.GoToCoordinatesToolStripMenuItem})
         Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(55, 22)
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(29, 22)
         Me.ToolStripDropDownButton2.Text = "Search"
         '
         'ToolStripTextBox1
@@ -164,25 +167,25 @@ Partial Class Form1
         'GoToCoordinatesToolStripMenuItem
         '
         Me.GoToCoordinatesToolStripMenuItem.Name = "GoToCoordinatesToolStripMenuItem"
-        Me.GoToCoordinatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GoToCoordinatesToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.GoToCoordinatesToolStripMenuItem.Text = "Search Input"
         '
         'ToolStripButton2
         '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(66, 22)
+        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton2.Text = "Locate Me"
         '
         'ToolStripButton3
         '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
         Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(50, 22)
+        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton3.Text = "Refresh"
         '
         'ToolStripSeparator4
@@ -264,6 +267,7 @@ Partial Class Form1
         'Nav
         '
         Me.Nav.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Nav.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Nav.Controls.Add(Me.KDN)
         Me.Nav.Controls.Add(Me.KUP)
         Me.Nav.Controls.Add(Me.KLT)
@@ -280,7 +284,8 @@ Partial Class Form1
         Me.KDN.FlatAppearance.BorderSize = 0
         Me.KDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.KDN.Font = New System.Drawing.Font("Webdings", 11.25!)
-        Me.KDN.Location = New System.Drawing.Point(20, 35)
+        Me.KDN.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.KDN.Location = New System.Drawing.Point(20, 34)
         Me.KDN.Name = "KDN"
         Me.KDN.Size = New System.Drawing.Size(23, 23)
         Me.KDN.TabIndex = 1
@@ -293,7 +298,8 @@ Partial Class Form1
         Me.KUP.FlatAppearance.BorderSize = 0
         Me.KUP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.KUP.Font = New System.Drawing.Font("Webdings", 11.25!)
-        Me.KUP.Location = New System.Drawing.Point(20, 0)
+        Me.KUP.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.KUP.Location = New System.Drawing.Point(20, -1)
         Me.KUP.Name = "KUP"
         Me.KUP.Size = New System.Drawing.Size(23, 23)
         Me.KUP.TabIndex = 0
@@ -306,7 +312,8 @@ Partial Class Form1
         Me.KLT.FlatAppearance.BorderSize = 0
         Me.KLT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.KLT.Font = New System.Drawing.Font("Webdings", 11.25!)
-        Me.KLT.Location = New System.Drawing.Point(3, 19)
+        Me.KLT.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.KLT.Location = New System.Drawing.Point(3, 18)
         Me.KLT.Name = "KLT"
         Me.KLT.Size = New System.Drawing.Size(23, 23)
         Me.KLT.TabIndex = 3
@@ -319,7 +326,8 @@ Partial Class Form1
         Me.KRT.FlatAppearance.BorderSize = 0
         Me.KRT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.KRT.Font = New System.Drawing.Font("Webdings", 11.25!)
-        Me.KRT.Location = New System.Drawing.Point(37, 19)
+        Me.KRT.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.KRT.Location = New System.Drawing.Point(37, 18)
         Me.KRT.Name = "KRT"
         Me.KRT.Size = New System.Drawing.Size(23, 23)
         Me.KRT.TabIndex = 2

@@ -3,6 +3,7 @@ Imports System.Device.Location
 Imports System.Runtime.InteropServices
 
 Public Class Form1
+    Dim n = 0
     Dim objShell = CreateObject("Shell.Application")
     Dim mtyp As String = "d"
     Dim msty As String = "h"
@@ -54,9 +55,9 @@ Public Class Form1
 
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        roundthethingy(Nav)
         TrafficToolStripMenuItem.Checked = True
         Navigate(0, 0, mtyp, msty, zm)
+        ' N2Loc("new delhi", mtyp, msty, 17)
         If darkness <= 0.5 Then
             Titlebar.ForeColor = Color.White
         End If
@@ -64,19 +65,23 @@ Public Class Form1
         Dim readValue = "#" + Hex(My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM", "AccentColorInactive", Nothing)).ToString
         inactivecolor = ColorTranslator.FromHtml(readValue)
         d2 = 1 - ((0.299 * Int(inactivecolor.R)) + (0.587 * Int(inactivecolor.G)) + (0.114 * Int(inactivecolor.B)))
+        roundthethingy(Nav)
+        For Each c As Control In Nav.Controls
+            roundthethingy(c)
+        Next
     End Sub
 
     Private Sub roundthethingy(oj As Object)
         Dim p As New Drawing2D.GraphicsPath()
         p.StartFigure()
-        p.AddEllipse(0, 0, oj.width, oj.height)
+        p.AddEllipse(0, 0, oj.width, oj.width)
         p.CloseFigure()
         oj.Region = New Region(p)
     End Sub
 
     Private Sub Watcher_StatusChanged(ByVal sender As Object, ByVal e As GeoPositionStatusChangedEventArgs)
+        n += 1
         If e.Status = GeoPositionStatus.Ready Then
-
             If Watcher.Position.Location.IsUnknown Then
                 txtlat = "Cannot find location data"
             Else
@@ -84,13 +89,19 @@ Public Class Form1
                 txtlong = Watcher.Position.Location.Longitude.ToString() '.Substring(0, 7)
             End If
         End If
-        If Val(txtlat) > 0 Then
-            Watcher.Stop()
-            zm = 17
-            Navigate(txtlat, txtlong, mtyp, msty, zm)
+        If n < 10 Then
+            If txtlat <> "Cannot find location data" And Math.Abs(Val(txtlat)) > 0.0000001 Then
+                Watcher.Stop()
+                zm = 17
+                Navigate(txtlat, txtlong, mtyp, msty, zm)
+            End If
+        Else
+                Watcher.Stop()
+            MessageBox.Show("Cannot find location data. Please check if location is on and the app ahs permission to access it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
     Private Sub LocateMe()
+        n = 0
         Watcher = New GeoCoordinateWatcher()
         AddHandler Watcher.StatusChanged, AddressOf Watcher_StatusChanged
         Watcher.Start()
@@ -98,10 +109,16 @@ Public Class Form1
 
     Private Sub Navigate(lati As String, longi As String, maptype As String, mapstyle As String, zoom As Integer)
         wb.Navigate("https://www.bing.com/maps/embed?h=" & (wb.Height + 28).ToString & "&w=" & (wb.Width + 300).ToString & "&cp=" & lati & "~" & longi & "&lvl=" & zoom.ToString & "&typ=" & maptype & "&sty=" & mapstyle & "&src=SHELL&FORM=MBEDV8")
+
     End Sub
 
-    Private Sub wb_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs)
+    ' Private Sub N2Loc(locn As String, maptype As String, mapstyle As String, zoom As Integer)
+    '     'locn = locn.Replace(" ", "%20")
+    '     wb.Navigate("https://www.bing.com/maps?v=2&where1=" & locn & "&h=" & (wb.Height + 28).ToString & "&w=" & (wb.Width + 300).ToString & "&lvl=" & zoom.ToString & "&typ=" & maptype & "&sty=" & mapstyle & "&src=SHELL&FORM=MBEDV8")
+    ' End Sub
 
+    Private Sub wb_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles wb.DocumentCompleted
+        ' MsgBox(wb.Document.Body.Children.GetElementsByName("container").Item(1).GetElementsByTagName("<div>").GetElementsByName("mapContainer").GetElementsByName("MicrosoftMap").Item(1).InnerHtml)
     End Sub
 
     Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
@@ -260,6 +277,8 @@ Public Class Form1
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
         Navigate(txtlat, txtlong, mtyp, msty, zm)
     End Sub
+
+
 End Class
 
 'maptype = d - draggable    mapstyle = r - road     mapstyle = a - aerial no labels
