@@ -9,11 +9,12 @@
 - Navigates to given coordinates
 - Supports Geolocation (PS: sometimes it doesn't work on the first try)(also your location should be on)
 - Saves image directly to your desktop
+
 ## Latest Additions
-- Added navigation controls for static map.
 <p align="right">
-  <img src="ipLocnTest/nav.png" width="100">
+  - Added navigation controls for static map.   <img src="ipLocnTest/nav.png" width="100">
 </p>
+
 ## Geolocation - example
 
     Imports System.Device.Location
