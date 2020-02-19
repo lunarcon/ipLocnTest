@@ -1,4 +1,5 @@
 # ipLocnTest
+Get decently featured maps in .NET, with no Map API involved!
 
 <p align="center">
   <img src="ipLocnTest/sq.png" width="800">
@@ -14,7 +15,7 @@
 <p align = "center">
   <img src="ipLocnTest/nav.png" width="150">
 </p>
-- Added Navigation controls for static map.<br>
+- 🆕 Added Navigation controls for static map.<br>
 - Improved zoom in static map.<br>
 - Added Navigation hints to toolbar.<br>
 - Minor design change.<br>
