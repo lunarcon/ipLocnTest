@@ -12,7 +12,7 @@
 
 ## Latest Additions
 
-  <img src="ipLocnTest/nav.png" width-"100">
+  <img src="ipLocnTest/nav.png" width="100">
 - Added Navigation controls for static map.
 - Improved Zoom for static map
 
