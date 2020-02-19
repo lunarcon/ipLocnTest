@@ -12,7 +12,8 @@
 
 ## Latest Additions
 <p>
-  - Added navigation controls for static map.    <img src="ipLocnTest/nav.png" width="100">
+  <img src="ipLocnTest/nav.png" width="100">
+- Added navigation controls for static map.    
 </p>
 
 ## Geolocation - example
