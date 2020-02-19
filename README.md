@@ -16,7 +16,9 @@
 </p>
 - Added Navigation controls for static map.<br>
 - Improved zoom in static map.<br>
-- Added Navigation hints to toolbar.
+- Added Navigation hints to toolbar.<br>
+- Minor design change.<br>
+- Added search tip.
  
 ## Geolocation - example
 
