@@ -18,7 +18,7 @@ Get decently featured maps in .NET, with no Map API involved on your end!
 </p><br>
 - 🆕 Menu items now have icons.<br><br>
 <p align = "left">
-  <img src="ipLocnTest/nbar.png" width="220">
+  <img src="ipLocnTest/nbar.png" width="250">
 </p>
 - Improved zoom in static map.<br>
 - Added Navigation hints to toolbar.<br>
