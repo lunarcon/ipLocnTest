@@ -12,7 +12,7 @@
 ## Geolocation - example
 
     Imports System.Device.Location
-    Dim txtlat As integer,txtlong as integer
+    Dim txtlat As string,txtlong as string
     Private Sub LocateMe()
          Watcher = New GeoCoordinateWatcher()
          AddHandler Watcher.StatusChanged, AddressOf Watcher_StatusChanged
@@ -32,3 +32,6 @@
             Watcher.Stop()
         End if
     End Sub        
+Call the LocateMe() sub when you require the location. For first use, a messagebox will pop up asking for permission to access location.
+The values of txtlat and txtlong will be set to the latitude and longitude.
+ Note that this is usually not instantaneous, and *may* fail on the first try
