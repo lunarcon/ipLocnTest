@@ -66,5 +66,5 @@ Put following code inside main class
     End Sub
 
 Call the LocateMe() sub when you require the location. For first use, a messagebox will pop up asking for permission to access location.
-The values of txtlat and txtlong will be set to the latitude and longitude.
+The values of txtlat and txtlong will be set to the latitude and longitude.<br>
 Note that this is usually not instantaneous, and *may* fail on the first try
