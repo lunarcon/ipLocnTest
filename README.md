@@ -1,10 +1,11 @@
 # ipLocnTest
+Get decently featured maps in .NET, with no Map API involved on your end!
 
 <p align="center">
   <img src="ipLocnTest/sq.png" width="800">
 </p>
 
-- Supports Satellite view (with and without lables) and Regular view (with labels).
+- Supports Satellite view (with and without labels) and Regular view (with labels).
 - Default Draggable (Through left mouse button) and Zoomable (Through Scroll Wheel), But also provides static mode (higher resolution) (with buttons for zoom, etc)
 - Navigates to given coordinates
 - Supports Geolocation (PS: sometimes it doesn't work on the first try)(also your location should be on)
@@ -14,7 +15,7 @@
 <p align = "center">
   <img src="ipLocnTest/nav.png" width="150">
 </p>
-- Added Navigation controls for static map.<br>
+- 🆕 Added circular Navigation controls for static map.<br>
 - Improved zoom in static map.<br>
 - Added Navigation hints to toolbar.<br>
 - Minor design change.<br>
