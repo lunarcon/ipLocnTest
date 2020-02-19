@@ -14,7 +14,7 @@ Get decently featured maps in .NET, with no Map API involved on your end!
 ## Latest Additions
 - Added circular Navigation controls for static map. 🆕 *Now they are dark.*<br>
 <p align = "left">
-  <img src="ipLocnTest/nv.png" width="160">
+  <img src="ipLocnTest/nv.png" width="250">
 </p><br>
 - 🆕 Menu items now have icons.<br><br>
 <p align = "left">
