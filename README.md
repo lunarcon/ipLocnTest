@@ -11,7 +11,6 @@
 - Saves image directly to your desktop
 
 ## Latest Additions
-
 <p>
   <img src="ipLocnTest/nav.png" width="100">
 </p>
