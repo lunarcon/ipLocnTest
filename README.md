@@ -1,7 +1,7 @@
 # ipLocnTest
 
 <p align="center">
-  <img src="ipLocnTest/qs.png" width="800">
+  <img src="ipLocnTest/sq.png" width="800">
 </p>
 
 - Supports Satellite view (with and without lables) and Regular view (with labels).
