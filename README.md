@@ -11,12 +11,12 @@
 
 ## Geolocation - example
 
-   Imports System.Device.Location
-   Dim txtlat As integer,txtlong as integer
-   Private Sub LocateMe()
-        Watcher = New GeoCoordinateWatcher()
-        AddHandler Watcher.StatusChanged, AddressOf Watcher_StatusChanged
-        Watcher.Start()
+    Imports System.Device.Location
+    Dim txtlat As integer,txtlong as integer
+    Private Sub LocateMe()
+         Watcher = New GeoCoordinateWatcher()
+         AddHandler Watcher.StatusChanged, AddressOf Watcher_StatusChanged
+         Watcher.Start()
     End Sub
     Private Sub Watcher_StatusChanged(ByVal sender As Object, ByVal e As GeoPositionStatusChangedEventArgs)
         If e.Status = GeoPositionStatus.Ready Then
