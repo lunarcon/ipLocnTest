@@ -24,7 +24,7 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.Titlebar = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
@@ -35,10 +35,11 @@ Partial Class Form1
         Me.TrafficToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.StaticMapFasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
         Me.GoToCoordinatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ZmIn = New System.Windows.Forms.ToolStripButton()
         Me.ZmOu = New System.Windows.Forms.ToolStripButton()
@@ -48,34 +49,34 @@ Partial Class Form1
         Me.wb = New System.Windows.Forms.WebBrowser()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Nav = New System.Windows.Forms.Panel()
-        Me.KUP = New System.Windows.Forms.Button()
         Me.KDN = New System.Windows.Forms.Button()
-        Me.KRT = New System.Windows.Forms.Button()
+        Me.KUP = New System.Windows.Forms.Button()
         Me.KLT = New System.Windows.Forms.Button()
+        Me.KRT = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        Me.ToolStrip1.SuspendLayout()
+        Me.Titlebar.SuspendLayout()
         Me.Nav.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.ToolStrip1)
+        Me.Panel1.Controls.Add(Me.Titlebar)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1064, 23)
         Me.Panel1.TabIndex = 1
         '
-        'ToolStrip1
+        'Titlebar
         '
-        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator1, Me.ToolStripDropDownButton1, Me.ToolStripButton2, Me.ToolStripDropDownButton2, Me.ToolStripSeparator4, Me.ZmIn, Me.ZmOu, Me.Sept, Me.ToolStripLabel1, Me.lbe})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip1.Size = New System.Drawing.Size(1064, 27)
-        Me.ToolStrip1.TabIndex = 0
-        Me.ToolStrip1.Text = "ToolStrip1"
+        Me.Titlebar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.Titlebar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator1, Me.ToolStripDropDownButton1, Me.ToolStripDropDownButton2, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripSeparator4, Me.ZmIn, Me.ZmOu, Me.Sept, Me.ToolStripLabel1, Me.lbe})
+        Me.Titlebar.Location = New System.Drawing.Point(0, 0)
+        Me.Titlebar.Name = "Titlebar"
+        Me.Titlebar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.Titlebar.Size = New System.Drawing.Size(1064, 25)
+        Me.Titlebar.TabIndex = 0
+        Me.Titlebar.Text = "ToolStrip1"
         '
         'ToolStripButton1
         '
@@ -105,53 +106,44 @@ Partial Class Form1
         '
         Me.ChangeMapStyleToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SatelliteToolStripMenuItem, Me.RoadToolStripMenuItem, Me.ToolStripSeparator2, Me.TrafficToolStripMenuItem})
         Me.ChangeMapStyleToolStripMenuItem.Name = "ChangeMapStyleToolStripMenuItem"
-        Me.ChangeMapStyleToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.ChangeMapStyleToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ChangeMapStyleToolStripMenuItem.Text = "Change Map Style"
         '
         'SatelliteToolStripMenuItem
         '
         Me.SatelliteToolStripMenuItem.Name = "SatelliteToolStripMenuItem"
-        Me.SatelliteToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.SatelliteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SatelliteToolStripMenuItem.Text = "Satellite"
         '
         'RoadToolStripMenuItem
         '
         Me.RoadToolStripMenuItem.Name = "RoadToolStripMenuItem"
-        Me.RoadToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.RoadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RoadToolStripMenuItem.Text = "Regular"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(112, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
         '
         'TrafficToolStripMenuItem
         '
         Me.TrafficToolStripMenuItem.CheckOnClick = True
         Me.TrafficToolStripMenuItem.Name = "TrafficToolStripMenuItem"
-        Me.TrafficToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.TrafficToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TrafficToolStripMenuItem.Text = "Labels"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(168, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
         '
         'StaticMapFasterToolStripMenuItem
         '
         Me.StaticMapFasterToolStripMenuItem.CheckOnClick = True
         Me.StaticMapFasterToolStripMenuItem.Name = "StaticMapFasterToolStripMenuItem"
-        Me.StaticMapFasterToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
-        Me.StaticMapFasterToolStripMenuItem.Text = "Static Map (hi-res)"
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(66, 24)
-        Me.ToolStripButton2.Text = "Locate Me"
+        Me.StaticMapFasterToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.StaticMapFasterToolStripMenuItem.Text = "Static Map"
         '
         'ToolStripDropDownButton2
         '
@@ -172,8 +164,26 @@ Partial Class Form1
         'GoToCoordinatesToolStripMenuItem
         '
         Me.GoToCoordinatesToolStripMenuItem.Name = "GoToCoordinatesToolStripMenuItem"
-        Me.GoToCoordinatesToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
-        Me.GoToCoordinatesToolStripMenuItem.Text = "Go to Coordinates"
+        Me.GoToCoordinatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GoToCoordinatesToolStripMenuItem.Text = "Search Input"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(66, 22)
+        Me.ToolStripButton2.Text = "Locate Me"
+        '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(50, 22)
+        Me.ToolStripButton3.Text = "Refresh"
         '
         'ToolStripSeparator4
         '
@@ -264,19 +274,6 @@ Partial Class Form1
         Me.Nav.TabIndex = 4
         Me.Nav.Visible = False
         '
-        'KUP
-        '
-        Me.KUP.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control
-        Me.KUP.FlatAppearance.BorderSize = 0
-        Me.KUP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.KUP.Font = New System.Drawing.Font("Webdings", 11.25!)
-        Me.KUP.Location = New System.Drawing.Point(20, 0)
-        Me.KUP.Name = "KUP"
-        Me.KUP.Size = New System.Drawing.Size(23, 23)
-        Me.KUP.TabIndex = 0
-        Me.KUP.Text = "5"
-        Me.KUP.UseVisualStyleBackColor = True
-        '
         'KDN
         '
         Me.KDN.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control
@@ -290,18 +287,18 @@ Partial Class Form1
         Me.KDN.Text = "6"
         Me.KDN.UseVisualStyleBackColor = True
         '
-        'KRT
+        'KUP
         '
-        Me.KRT.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control
-        Me.KRT.FlatAppearance.BorderSize = 0
-        Me.KRT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.KRT.Font = New System.Drawing.Font("Webdings", 11.25!)
-        Me.KRT.Location = New System.Drawing.Point(37, 19)
-        Me.KRT.Name = "KRT"
-        Me.KRT.Size = New System.Drawing.Size(23, 23)
-        Me.KRT.TabIndex = 2
-        Me.KRT.Text = "4"
-        Me.KRT.UseVisualStyleBackColor = True
+        Me.KUP.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control
+        Me.KUP.FlatAppearance.BorderSize = 0
+        Me.KUP.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.KUP.Font = New System.Drawing.Font("Webdings", 11.25!)
+        Me.KUP.Location = New System.Drawing.Point(20, 0)
+        Me.KUP.Name = "KUP"
+        Me.KUP.Size = New System.Drawing.Size(23, 23)
+        Me.KUP.TabIndex = 0
+        Me.KUP.Text = "5"
+        Me.KUP.UseVisualStyleBackColor = True
         '
         'KLT
         '
@@ -315,6 +312,19 @@ Partial Class Form1
         Me.KLT.TabIndex = 3
         Me.KLT.Text = "3"
         Me.KLT.UseVisualStyleBackColor = True
+        '
+        'KRT
+        '
+        Me.KRT.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control
+        Me.KRT.FlatAppearance.BorderSize = 0
+        Me.KRT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.KRT.Font = New System.Drawing.Font("Webdings", 11.25!)
+        Me.KRT.Location = New System.Drawing.Point(37, 19)
+        Me.KRT.Name = "KRT"
+        Me.KRT.Size = New System.Drawing.Size(23, 23)
+        Me.KRT.TabIndex = 2
+        Me.KRT.Text = "4"
+        Me.KRT.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -332,15 +342,15 @@ Partial Class Form1
         Me.Text = "GetMap"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
+        Me.Titlebar.ResumeLayout(False)
+        Me.Titlebar.PerformLayout()
         Me.Nav.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents Titlebar As ToolStrip
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ToolStripDropDownButton1 As ToolStripDropDownButton
@@ -368,4 +378,5 @@ Partial Class Form1
     Friend WithEvents KRT As Button
     Friend WithEvents KDN As Button
     Friend WithEvents KUP As Button
+    Friend WithEvents ToolStripButton3 As ToolStripButton
 End Class

@@ -7,6 +7,8 @@ Public Class Form1
     Dim mtyp As String = "d"
     Dim msty As String = "h"
     Dim zm As Integer = 1
+    Dim IsMouseDown As Boolean
+    Dim startPoint
     Dim delta As Double = 60
     Dim colorSystemAccent As UInteger = GetImmersiveColorFromColorSetEx(GetImmersiveUserColorSetPreference(False, False), GetImmersiveColorTypeFromName(Marshal.StringToHGlobalUni("ImmersiveSystemAccent")), False, 0)
     Dim colorAccent As System.Drawing.Color = System.Drawing.Color.FromArgb((&HFF000000 And colorSystemAccent) >> 24, &HFF And colorSystemAccent, (&HFF00 And colorSystemAccent) >> 8, (&HFF0000 And colorSystemAccent) >> 16)
@@ -24,17 +26,44 @@ Public Class Form1
     Dim txtlat As String = "0"
     Dim txtlong As String = "0"
     Private Watcher As GeoCoordinateWatcher = Nothing
-    ReadOnly darkness As Double = 1 - ((0.299 * Int(colorAccent.R)) + (0.587 * Int(colorAccent.G)) + (0.114 * Int(colorAccent.B)))
+    Dim inactivecolor As Color
+    Dim darkness As Double = 1 - ((0.299 * Int(colorAccent.R)) + (0.587 * Int(colorAccent.G)) + (0.114 * Int(colorAccent.B)))
+    Dim d2 As Double = 0
+    Private Sub TitleBar_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Titlebar.MouseUp
+        IsMouseDown = False
+    End Sub
 
+    Private Sub TitleBar_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Titlebar.MouseMove
+        If IsMouseDown Then
+            Dim p1 = New Point(e.X, e.Y)
+            Dim p2 = PointToScreen(p1)
+            Dim p3 = New Point(p2.X - startPoint.X, p2.Y - startPoint.Y)
+            Location = p3
+            Opacity = 0.95
+        End If
+    End Sub
+
+    Private Sub TitleBar_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Titlebar.MouseDown
+        If e.Button = MouseButtons.Left Then
+            Titlebar.Capture = False
+            Const WM_NCLBUTTONDOWN As Integer = &HA1S
+            Const HTCAPTION As Integer = 2
+            Dim msg As Message = Message.Create(Me.Handle, WM_NCLBUTTONDOWN, New IntPtr(HTCAPTION), IntPtr.Zero)
+            Me.DefWndProc(msg)
+        End If
+
+    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         roundthethingy(Nav)
         TrafficToolStripMenuItem.Checked = True
         Navigate(0, 0, mtyp, msty, zm)
         If darkness <= 0.5 Then
-            ToolStrip1.ForeColor = Color.White
+            Titlebar.ForeColor = Color.White
         End If
-        ToolStrip1.BackColor = colorAccent
-
+        Titlebar.BackColor = colorAccent
+        Dim readValue = "#" + Hex(My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM", "AccentColorInactive", Nothing)).ToString
+        inactivecolor = ColorTranslator.FromHtml(readValue)
+        d2 = 1 - ((0.299 * Int(inactivecolor.R)) + (0.587 * Int(inactivecolor.G)) + (0.114 * Int(inactivecolor.B)))
     End Sub
 
     Private Sub roundthethingy(oj As Object)
@@ -165,7 +194,7 @@ Public Class Form1
             txtlong = cords.Substring(cords.LastIndexOf(",") + 1)
             Navigate(txtlat, txtlong, mtyp, msty, 15)
         Catch ex As Exception
-
+            MsgBox("Please check if input is in 'lat,long' form - separated by comma but without any spaces." & vbNewLine & "Example of valid input: 120.0182,22.9821")
         End Try
     End Sub
 
@@ -183,14 +212,6 @@ Public Class Form1
             Navigate(txtlat, txtlong, mtyp, msty, zm)
             CalculateDelta()
         End If
-    End Sub
-
-    Private Sub ToolStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip1.ItemClicked
-
-    End Sub
-
-    Private Sub Form1_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
-
     End Sub
 
     Private Sub CalculateDelta()
@@ -217,6 +238,26 @@ Public Class Form1
 
     Private Sub KLT_Click(sender As Object, e As EventArgs) Handles KLT.Click
         txtlong = (Val(txtlong) - delta).ToString
+        Navigate(txtlat, txtlong, mtyp, msty, zm)
+    End Sub
+
+    Private Sub Form1_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
+        Titlebar.BackColor = inactivecolor
+        If d2 >= 0.5 Then
+            Titlebar.ForeColor = Color.Black
+        Else
+            Titlebar.ForeColor = Color.White
+        End If
+    End Sub
+
+    Private Sub Form1_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        Titlebar.BackColor = colorAccent
+        If darkness <= 0.5 Then
+            Titlebar.ForeColor = Color.White
+        End If
+    End Sub
+
+    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
         Navigate(txtlat, txtlong, mtyp, msty, zm)
     End Sub
 End Class
