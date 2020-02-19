@@ -7,6 +7,7 @@ Public Class Form1
     Dim mtyp As String = "d"
     Dim msty As String = "h"
     Dim zm As Integer = 1
+    Dim delta As Double = 60
     Dim colorSystemAccent As UInteger = GetImmersiveColorFromColorSetEx(GetImmersiveUserColorSetPreference(False, False), GetImmersiveColorTypeFromName(Marshal.StringToHGlobalUni("ImmersiveSystemAccent")), False, 0)
     Dim colorAccent As System.Drawing.Color = System.Drawing.Color.FromArgb((&HFF000000 And colorSystemAccent) >> 24, &HFF And colorSystemAccent, (&HFF00 And colorSystemAccent) >> 8, (&HFF0000 And colorSystemAccent) >> 16)
 
@@ -23,9 +24,10 @@ Public Class Form1
     Dim txtlat As String = "0"
     Dim txtlong As String = "0"
     Private Watcher As GeoCoordinateWatcher = Nothing
-    Dim darkness As Double = 1 - ((0.299 * Int(colorAccent.R)) + (0.587 * Int(colorAccent.G)) + (0.114 * Int(colorAccent.B)))
+    ReadOnly darkness As Double = 1 - ((0.299 * Int(colorAccent.R)) + (0.587 * Int(colorAccent.G)) + (0.114 * Int(colorAccent.B)))
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        roundthethingy(Nav)
         TrafficToolStripMenuItem.Checked = True
         Navigate(0, 0, mtyp, msty, zm)
         If darkness <= 0.5 Then
@@ -34,6 +36,15 @@ Public Class Form1
         ToolStrip1.BackColor = colorAccent
 
     End Sub
+
+    Private Sub roundthethingy(oj As Object)
+        Dim p As New Drawing2D.GraphicsPath()
+        p.StartFigure()
+        p.AddEllipse(0, 0, oj.width, oj.height)
+        p.CloseFigure()
+        oj.Region = New Region(p)
+    End Sub
+
     Private Sub Watcher_StatusChanged(ByVal sender As Object, ByVal e As GeoPositionStatusChangedEventArgs)
         If e.Status = GeoPositionStatus.Ready Then
 
@@ -44,10 +55,10 @@ Public Class Form1
                 txtlong = Watcher.Position.Location.Longitude.ToString() '.Substring(0, 7)
             End If
         End If
-        Navigate(txtlat, txtlong, mtyp, msty, 17)
         If Val(txtlat) > 0 Then
             Watcher.Stop()
-            Clipboard.SetText(wb.Url.ToString)
+            zm = 17
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
         End If
     End Sub
     Private Sub LocateMe()
@@ -92,16 +103,20 @@ Public Class Form1
     Private Sub StaticMapFasterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StaticMapFasterToolStripMenuItem.Click
         If sender.checked = True Then
             mtyp = "s"
-            Navigate(0, 0, mtyp, msty, zm)
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
             ZmIn.Visible = True
             ZmOu.Visible = True
             Sept.Visible = True
+            lbe.Text = "Use provided navigation buttons to move map and to zoom"
+            Nav.Visible = True
         Else
             mtyp = "d"
-            Navigate(0, 0, mtyp, msty, zm)
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
             ZmIn.Visible = False
             ZmOu.Visible = False
             Sept.Visible = False
+            lbe.Text = "Drag to move map, Scroll to zoom"
+            Nav.Visible = False
         End If
     End Sub
 
@@ -109,10 +124,10 @@ Public Class Form1
         If sender.checked = False Then
             If TrafficToolStripMenuItem.Checked = True Then
                 msty = "h"
-                Navigate(0, 0, mtyp, msty, zm)
+                Navigate(txtlat, txtlong, mtyp, msty, zm)
             Else
                 msty = "a"
-                Navigate(0, 0, mtyp, msty, zm)
+                Navigate(txtlat, txtlong, mtyp, msty, zm)
             End If
         Else
             RoadToolStripMenuItem.PerformClick()
@@ -123,7 +138,7 @@ Public Class Form1
         If sender.checked = False Then
             msty = "r"
             TrafficToolStripMenuItem.Checked = True
-            Navigate(0, 0, mtyp, msty, zm)
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
         Else
             SatelliteToolStripMenuItem.PerformClick()
         End If
@@ -155,13 +170,19 @@ Public Class Form1
     End Sub
 
     Private Sub ZmIn_Click(sender As Object, e As EventArgs) Handles ZmIn.Click
-        zm += 1
-        Navigate(txtlat, txtlong, mtyp, msty, zm)
+        If zm < 20 Then
+            zm += 1
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
+            CalculateDelta()
+        End If
     End Sub
 
     Private Sub ZmOu_Click(sender As Object, e As EventArgs) Handles ZmOu.Click
-        zm -= 1
-        Navigate(txtlat, txtlong, mtyp, msty, zm)
+        If zm > 1 Then
+            zm -= 1
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
+            CalculateDelta()
+        End If
     End Sub
 
     Private Sub ToolStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ToolStrip1.ItemClicked
@@ -170,6 +191,33 @@ Public Class Form1
 
     Private Sub Form1_LostFocus(sender As Object, e As EventArgs) Handles Me.LostFocus
 
+    End Sub
+
+    Private Sub CalculateDelta()
+        delta = 75
+        For i = 1 To zm - 1
+            delta = delta / 2
+        Next
+    End Sub
+
+    Private Sub KUP_Click(sender As Object, e As EventArgs) Handles KUP.Click
+        txtlat = (Val(txtlat) + delta).ToString
+        Navigate(txtlat, txtlong, mtyp, msty, zm)
+    End Sub
+
+    Private Sub KRT_Click(sender As Object, e As EventArgs) Handles KRT.Click
+        txtlong = (Val(txtlong) + delta).ToString
+        Navigate(txtlat, txtlong, mtyp, msty, zm)
+    End Sub
+
+    Private Sub KDN_Click(sender As Object, e As EventArgs) Handles KDN.Click
+        txtlat = (Val(txtlat) - delta).ToString
+        Navigate(txtlat, txtlong, mtyp, msty, zm)
+    End Sub
+
+    Private Sub KLT_Click(sender As Object, e As EventArgs) Handles KLT.Click
+        txtlong = (Val(txtlong) - delta).ToString
+        Navigate(txtlat, txtlong, mtyp, msty, zm)
     End Sub
 End Class
 
