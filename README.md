@@ -28,7 +28,7 @@
                 txtlong = Watcher.Position.Location.Longitude.ToString() '.Substring(0, 7)
             End If
         End If       
-        If Val(txtlat) > 0 Then
+        If Math.Mod(Val(txtlat)) > 0 Then
             Watcher.Stop()
         End if
     End Sub        
