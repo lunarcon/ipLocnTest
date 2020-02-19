@@ -11,10 +11,10 @@
 - Saves image directly to your desktop
 
 ## Latest Additions
-<p>
-  <img src="ipLocnTest/nav.png" width="100">
-- Added navigation controls for static map.    
-</p>
+
+  <img src="ipLocnTest/nav.png" width-"100">
+- Added Navigation controls for static map.
+- Improved Zoom for static map
 
 ## Geolocation - example
 
