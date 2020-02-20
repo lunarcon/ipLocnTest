@@ -1,6 +1,11 @@
 ﻿Imports System.Collections.Generic
 Imports System.Device.Location
+Imports System.IO
 Imports System.Runtime.InteropServices
+Imports Newtonsoft.Json
+Imports Newtonsoft.Json.Linq
+Imports System.Globalization
+
 
 Public Class Form1
     Dim n = 0
@@ -13,6 +18,7 @@ Public Class Form1
     Dim delta As Double = 60
     Dim colorSystemAccent As UInteger = GetImmersiveColorFromColorSetEx(GetImmersiveUserColorSetPreference(False, False), GetImmersiveColorTypeFromName(Marshal.StringToHGlobalUni("ImmersiveSystemAccent")), False, 0)
     Dim colorAccent As System.Drawing.Color = System.Drawing.Color.FromArgb((&HFF000000 And colorSystemAccent) >> 24, &HFF And colorSystemAccent, (&HFF00 And colorSystemAccent) >> 8, (&HFF0000 And colorSystemAccent) >> 16)
+    Dim strPath As String = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
 
     <DllImport("Uxtheme.dll", SetLastError:=True, CharSet:=CharSet.Auto, EntryPoint:="#95")>
     Public Shared Function GetImmersiveColorFromColorSetEx(ByVal dwImmersiveColorSet As UInteger, ByVal dwImmersiveColorType As UInteger, ByVal bIgnoreHighContrast As Boolean, ByVal dwHighContrastCacheMode As UInteger) As UInteger
@@ -96,7 +102,7 @@ Public Class Form1
                 Navigate(txtlat, txtlong, mtyp, msty, zm)
             End If
         Else
-                Watcher.Stop()
+            Watcher.Stop()
             MessageBox.Show("Cannot find location data. Please check if location is on and the app ahs permission to access it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
@@ -209,9 +215,18 @@ Public Class Form1
         Try
             txtlat = cords.Substring(0, cords.LastIndexOf(","))
             txtlong = cords.Substring(cords.LastIndexOf(",") + 1)
-            Navigate(txtlat, txtlong, mtyp, msty, 15)
+            zm = 15
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
         Catch ex As Exception
-            MsgBox("Please check if input is in 'lat,long' form - separated by comma but without any spaces." & vbNewLine & "Example of valid input: 120.0182,22.9821")
+            Try
+                Dim latlong = SearchCountry(cords)
+                txtlat = latlong.Substring(0, latlong.LastIndexOf(","))
+                txtlong = latlong.Substring(latlong.LastIndexOf(",") + 1)
+                zm = 5
+                Navigate(txtlat, txtlong, mtyp, msty, zm)
+            Catch ey As Exception
+
+            End Try
         End Try
     End Sub
 
@@ -277,6 +292,15 @@ Public Class Form1
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
         Navigate(txtlat, txtlong, mtyp, msty, zm)
     End Sub
+
+    Private Function SearchCountry(cname As String) As String
+        Dim latlong As String = ""
+        cname = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(cname)
+        Dim json As String = File.ReadAllLines(strPath.Replace("file:\", "") & "\countries.json").FirstOrDefault(Function(x) x.Contains(My.Resources.st1 + cname + My.Resources.st1)).TrimEnd(",")
+        Dim read = JObject.Parse(json)
+        latlong = read.Item("latlng").ToString.Replace(vbNewLine, "").Replace("[", "").Replace("]", "").Replace(" ", "")
+        Return latlong
+    End Function
 
 
 End Class

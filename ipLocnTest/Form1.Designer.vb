@@ -75,7 +75,7 @@ Partial Class Form1
         Me.Titlebar.Location = New System.Drawing.Point(0, 0)
         Me.Titlebar.Name = "Titlebar"
         Me.Titlebar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.Titlebar.Size = New System.Drawing.Size(1064, 25)
+        Me.Titlebar.Size = New System.Drawing.Size(1064, 27)
         Me.Titlebar.TabIndex = 0
         Me.Titlebar.Text = "ToolStrip1"
         '
@@ -86,14 +86,14 @@ Partial Class Form1
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 24)
         Me.ToolStripButton1.Text = "Save Image"
         Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 27)
         '
         'ToolStripDropDownButton1
         '
@@ -102,7 +102,7 @@ Partial Class Form1
         Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(29, 22)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(29, 24)
         Me.ToolStripDropDownButton1.Text = "Map Options"
         '
         'ChangeMapStyleToolStripMenuItem
@@ -155,7 +155,7 @@ Partial Class Form1
         Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(29, 22)
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(29, 24)
         Me.ToolStripDropDownButton2.Text = "Search"
         '
         'ToolStripTextBox1
@@ -176,7 +176,7 @@ Partial Class Form1
         Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 24)
         Me.ToolStripButton2.Text = "Locate Me"
         '
         'ToolStripButton3
@@ -185,13 +185,13 @@ Partial Class Form1
         Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
         Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 24)
         Me.ToolStripButton3.Text = "Refresh"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 27)
         '
         'ZmIn
         '
@@ -224,20 +224,20 @@ Partial Class Form1
         'Sept
         '
         Me.Sept.Name = "Sept"
-        Me.Sept.Size = New System.Drawing.Size(6, 25)
+        Me.Sept.Size = New System.Drawing.Size(6, 27)
         Me.Sept.Visible = False
         '
         'ToolStripLabel1
         '
         Me.ToolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(225, 22)
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(225, 24)
         Me.ToolStripLabel1.Text = "Bing Maps - Copyright @ Microsoft, 2020"
         '
         'lbe
         '
         Me.lbe.Name = "lbe"
-        Me.lbe.Size = New System.Drawing.Size(188, 22)
+        Me.lbe.Size = New System.Drawing.Size(188, 24)
         Me.lbe.Text = "Drag to move map, Scroll to zoom"
         '
         'wb
