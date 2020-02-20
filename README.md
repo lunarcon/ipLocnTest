@@ -12,6 +12,7 @@ Get decently featured maps in .NET, without any actual mapping API involved in y
 - Saves image directly to your desktop
 
 ## Latest Additions
+- 🆕 Updated toolbar.
 <ul>
   <li> 🆕 Now you can search for countries too, along with the regular coordinate search.
 </ul><br>
