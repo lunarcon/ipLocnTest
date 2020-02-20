@@ -1,5 +1,5 @@
 # ipLocnTest
-Get decently featured maps in .NET, with any actual mapping API involved in your end!
+Get decently featured maps in .NET, without any actual mapping API involved in your end!
 
 <p align="center">
   <img src="ipLocnTest/sq.png" width="800">
