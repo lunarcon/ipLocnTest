@@ -63,9 +63,11 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TrafficToolStripMenuItem.Checked = True
         Navigate(0, 0, mtyp, msty, zm)
+        ToolStripTextBox1.BackColor = colorAccent
         ' N2Loc("new delhi", mtyp, msty, 17)
         If darkness <= 0.5 Then
             Titlebar.ForeColor = Color.White
+            ToolStripTextBox1.ForeColor = Color.White
         End If
         Titlebar.BackColor = colorAccent
         Dim readValue = "#" + Hex(My.Computer.Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM", "AccentColorInactive", Nothing)).ToString
@@ -158,7 +160,6 @@ Public Class Form1
             Navigate(txtlat, txtlong, mtyp, msty, zm)
             ZmIn.Visible = True
             ZmOu.Visible = True
-            Sept.Visible = True
             lbe.Text = "Use provided navigation buttons to move map and to zoom"
             Nav.Visible = True
         Else
@@ -166,7 +167,6 @@ Public Class Form1
             Navigate(txtlat, txtlong, mtyp, msty, zm)
             ZmIn.Visible = False
             ZmOu.Visible = False
-            Sept.Visible = False
             lbe.Text = "Drag to move map, Scroll to zoom"
             Nav.Visible = False
         End If
@@ -210,24 +210,8 @@ Public Class Form1
     Private Sub ToolStripTextBox1_Click(sender As Object, e As EventArgs) Handles ToolStripTextBox1.Click
         sender.text = ""
     End Sub
-    Private Sub GoToCoordinatesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GoToCoordinatesToolStripMenuItem.Click
-        Dim cords As String = ToolStripTextBox1.Text
-        Try
-            txtlat = cords.Substring(0, cords.LastIndexOf(","))
-            txtlong = cords.Substring(cords.LastIndexOf(",") + 1)
-            zm = 15
-            Navigate(txtlat, txtlong, mtyp, msty, zm)
-        Catch ex As Exception
-            Try
-                Dim latlong = SearchCountry(cords)
-                txtlat = latlong.Substring(0, latlong.LastIndexOf(","))
-                txtlong = latlong.Substring(latlong.LastIndexOf(",") + 1)
-                zm = 5
-                Navigate(txtlat, txtlong, mtyp, msty, zm)
-            Catch ey As Exception
+    Private Sub GoToCoordinatesToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
-            End Try
-        End Try
     End Sub
 
     Private Sub ZmIn_Click(sender As Object, e As EventArgs) Handles ZmIn.Click
@@ -275,17 +259,22 @@ Public Class Form1
 
     Private Sub Form1_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
         Titlebar.BackColor = inactivecolor
+        ToolStripTextBox1.BackColor = inactivecolor
         If d2 >= 0.5 Then
             Titlebar.ForeColor = Color.Black
+            ToolStripTextBox1.ForeColor = Color.Black
         Else
             Titlebar.ForeColor = Color.White
+            ToolStripTextBox1.ForeColor = Color.White
         End If
     End Sub
 
     Private Sub Form1_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         Titlebar.BackColor = colorAccent
+        ToolStripTextBox1.BackColor = colorAccent
         If darkness <= 0.5 Then
             Titlebar.ForeColor = Color.White
+            ToolStripTextBox1.ForeColor = Color.White
         End If
     End Sub
 
@@ -302,7 +291,36 @@ Public Class Form1
         Return latlong
     End Function
 
+    Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
+        Dim cords As String = ToolStripTextBox1.Text
+        Try
+            txtlat = cords.Substring(0, cords.LastIndexOf(","))
+            txtlong = cords.Substring(cords.LastIndexOf(",") + 1)
+            zm = 15
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
+        Catch ex As Exception
+            Try
+                Dim latlong = SearchCountry(cords)
+                txtlat = latlong.Substring(0, latlong.LastIndexOf(","))
+                txtlong = latlong.Substring(latlong.LastIndexOf(",") + 1)
+                zm = 5
+                Navigate(txtlat, txtlong, mtyp, msty, zm)
+            Catch ey As Exception
+                MessageBox.Show("Could not find input country or coordinates." & vbNewLine & vbNewLine & "To search for a country, consider trying an alternate or more precise name." & vbNewLine & "To search for coordinates, they need to be comma separated without spaces.", "Search failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+        End Try
+        ToolStripTextBox1.Text = "Search"
+    End Sub
 
+    Private Sub ToolStripTextBox1_GotFocus(sender As Object, e As EventArgs) Handles ToolStripTextBox1.GotFocus
+        sender.Forecolor = Color.Black
+        sender.backcolor = Color.White
+    End Sub
+
+    Private Sub ToolStripTextBox1_LostFocus(sender As Object, e As EventArgs) Handles ToolStripTextBox1.LostFocus
+        sender.forecolor = Titlebar.ForeColor
+        sender.backcolor = Titlebar.BackColor
+    End Sub
 End Class
 
 'maptype = d - draggable    mapstyle = r - road     mapstyle = a - aerial no labels

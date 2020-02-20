@@ -23,10 +23,16 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Titlebar = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.ZmIn = New System.Windows.Forms.ToolStripButton()
+        Me.ZmOu = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.lbe = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ChangeMapStyleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SatelliteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -35,17 +41,6 @@ Partial Class Form1
         Me.TrafficToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.StaticMapFasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
-        Me.GoToCoordinatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ZmIn = New System.Windows.Forms.ToolStripButton()
-        Me.ZmOu = New System.Windows.Forms.ToolStripButton()
-        Me.Sept = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
-        Me.lbe = New System.Windows.Forms.ToolStripLabel()
         Me.wb = New System.Windows.Forms.WebBrowser()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Nav = New System.Windows.Forms.Panel()
@@ -53,56 +48,139 @@ Partial Class Form1
         Me.KUP = New System.Windows.Forms.Button()
         Me.KLT = New System.Windows.Forms.Button()
         Me.KRT = New System.Windows.Forms.Button()
-        Me.Panel1.SuspendLayout()
         Me.Titlebar.SuspendLayout()
         Me.Nav.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.Titlebar)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1064, 23)
-        Me.Panel1.TabIndex = 1
-        '
         'Titlebar
         '
+        Me.Titlebar.AutoSize = False
         Me.Titlebar.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Titlebar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.Titlebar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator1, Me.ToolStripDropDownButton1, Me.ToolStripDropDownButton2, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripSeparator4, Me.ZmIn, Me.ZmOu, Me.Sept, Me.ToolStripLabel1, Me.lbe})
+        Me.Titlebar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ZmIn, Me.ZmOu, Me.ToolStripLabel1, Me.lbe, Me.ToolStripTextBox1, Me.ToolStripButton4, Me.ToolStripDropDownButton1})
         Me.Titlebar.Location = New System.Drawing.Point(0, 0)
         Me.Titlebar.Name = "Titlebar"
         Me.Titlebar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.Titlebar.Size = New System.Drawing.Size(1064, 27)
+        Me.Titlebar.Size = New System.Drawing.Size(1064, 40)
         Me.Titlebar.TabIndex = 0
         Me.Titlebar.Text = "ToolStrip1"
         '
         'ToolStripButton1
         '
         Me.ToolStripButton1.AutoToolTip = False
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton1.Font = New System.Drawing.Font("Segoe MDL2 Assets", 15.0!)
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Margin = New System.Windows.Forms.Padding(5, 0, 5, 2)
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 24)
-        Me.ToolStripButton1.Text = "Save Image"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(33, 38)
+        Me.ToolStripButton1.Text = ""
         Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay
         '
-        'ToolStripSeparator1
+        'ToolStripButton2
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 27)
+        Me.ToolStripButton2.AutoToolTip = False
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton2.Font = New System.Drawing.Font("Segoe MDL2 Assets", 15.0!)
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 2)
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(33, 38)
+        Me.ToolStripButton2.Text = ""
+        Me.ToolStripButton2.ToolTipText = "Locate me"
+        '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.AutoToolTip = False
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton3.Font = New System.Drawing.Font("Segoe MDL2 Assets", 12.0!)
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton3.Margin = New System.Windows.Forms.Padding(5, 0, 5, 2)
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(28, 38)
+        Me.ToolStripButton3.Text = ""
+        Me.ToolStripButton3.ToolTipText = "Refresh"
+        '
+        'ZmIn
+        '
+        Me.ZmIn.AutoToolTip = False
+        Me.ZmIn.BackColor = System.Drawing.Color.Transparent
+        Me.ZmIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ZmIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.ZmIn.Image = CType(resources.GetObject("ZmIn.Image"), System.Drawing.Image)
+        Me.ZmIn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ZmIn.Margin = New System.Windows.Forms.Padding(5, 0, 5, 2)
+        Me.ZmIn.Name = "ZmIn"
+        Me.ZmIn.Size = New System.Drawing.Size(28, 38)
+        Me.ZmIn.Text = "+"
+        Me.ZmIn.ToolTipText = "Zoom In"
+        Me.ZmIn.Visible = False
+        '
+        'ZmOu
+        '
+        Me.ZmOu.AutoToolTip = False
+        Me.ZmOu.BackColor = System.Drawing.Color.Transparent
+        Me.ZmOu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ZmOu.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.ZmOu.Image = CType(resources.GetObject("ZmOu.Image"), System.Drawing.Image)
+        Me.ZmOu.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ZmOu.Margin = New System.Windows.Forms.Padding(5, 0, 5, 2)
+        Me.ZmOu.Name = "ZmOu"
+        Me.ZmOu.Size = New System.Drawing.Size(23, 38)
+        Me.ZmOu.Text = "-"
+        Me.ZmOu.ToolTipText = "Zoom Out"
+        Me.ZmOu.Visible = False
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(225, 37)
+        Me.ToolStripLabel1.Text = "Bing Maps - Copyright @ Microsoft, 2020"
+        Me.ToolStripLabel1.Visible = False
+        '
+        'lbe
+        '
+        Me.lbe.Name = "lbe"
+        Me.lbe.Size = New System.Drawing.Size(10, 37)
+        Me.lbe.Text = "."
+        Me.lbe.Visible = False
+        '
+        'ToolStripTextBox1
+        '
+        Me.ToolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ToolStripTextBox1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.ToolStripTextBox1.Margin = New System.Windows.Forms.Padding(10, 0, 5, 2)
+        Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
+        Me.ToolStripTextBox1.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(189, 38)
+        Me.ToolStripTextBox1.Text = "Search"
+        '
+        'ToolStripButton4
+        '
+        Me.ToolStripButton4.AutoToolTip = False
+        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton4.Font = New System.Drawing.Font("Segoe MDL2 Assets", 13.0!)
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton4.Margin = New System.Windows.Forms.Padding(5, 0, 5, 2)
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.Size = New System.Drawing.Size(30, 38)
+        Me.ToolStripButton4.Text = ""
+        Me.ToolStripButton4.ToolTipText = "Search"
         '
         'ToolStripDropDownButton1
         '
-        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripDropDownButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeMapStyleToolStripMenuItem, Me.ToolStripSeparator3, Me.StaticMapFasterToolStripMenuItem})
         Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(29, 24)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(89, 37)
         Me.ToolStripDropDownButton1.Text = "Map Options"
         '
         'ChangeMapStyleToolStripMenuItem
@@ -148,108 +226,17 @@ Partial Class Form1
         Me.StaticMapFasterToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.StaticMapFasterToolStripMenuItem.Text = "Static Map"
         '
-        'ToolStripDropDownButton2
-        '
-        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTextBox1, Me.GoToCoordinatesToolStripMenuItem})
-        Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(29, 24)
-        Me.ToolStripDropDownButton2.Text = "Search"
-        '
-        'ToolStripTextBox1
-        '
-        Me.ToolStripTextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
-        Me.ToolStripTextBox1.Size = New System.Drawing.Size(100, 23)
-        '
-        'GoToCoordinatesToolStripMenuItem
-        '
-        Me.GoToCoordinatesToolStripMenuItem.Name = "GoToCoordinatesToolStripMenuItem"
-        Me.GoToCoordinatesToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.GoToCoordinatesToolStripMenuItem.Text = "Search Input"
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 24)
-        Me.ToolStripButton2.Text = "Locate Me"
-        '
-        'ToolStripButton3
-        '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 24)
-        Me.ToolStripButton3.Text = "Refresh"
-        '
-        'ToolStripSeparator4
-        '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 27)
-        '
-        'ZmIn
-        '
-        Me.ZmIn.AutoToolTip = False
-        Me.ZmIn.BackColor = System.Drawing.Color.Transparent
-        Me.ZmIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ZmIn.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ZmIn.Image = CType(resources.GetObject("ZmIn.Image"), System.Drawing.Image)
-        Me.ZmIn.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ZmIn.Name = "ZmIn"
-        Me.ZmIn.Size = New System.Drawing.Size(24, 24)
-        Me.ZmIn.Text = "+"
-        Me.ZmIn.ToolTipText = "Zoom In"
-        Me.ZmIn.Visible = False
-        '
-        'ZmOu
-        '
-        Me.ZmOu.AutoToolTip = False
-        Me.ZmOu.BackColor = System.Drawing.Color.Transparent
-        Me.ZmOu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ZmOu.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ZmOu.Image = CType(resources.GetObject("ZmOu.Image"), System.Drawing.Image)
-        Me.ZmOu.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ZmOu.Name = "ZmOu"
-        Me.ZmOu.Size = New System.Drawing.Size(23, 24)
-        Me.ZmOu.Text = "-"
-        Me.ZmOu.ToolTipText = "Zoom Out"
-        Me.ZmOu.Visible = False
-        '
-        'Sept
-        '
-        Me.Sept.Name = "Sept"
-        Me.Sept.Size = New System.Drawing.Size(6, 27)
-        Me.Sept.Visible = False
-        '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(225, 24)
-        Me.ToolStripLabel1.Text = "Bing Maps - Copyright @ Microsoft, 2020"
-        '
-        'lbe
-        '
-        Me.lbe.Name = "lbe"
-        Me.lbe.Size = New System.Drawing.Size(188, 24)
-        Me.lbe.Text = "Drag to move map, Scroll to zoom"
-        '
         'wb
         '
         Me.wb.Dock = System.Windows.Forms.DockStyle.Fill
         Me.wb.IsWebBrowserContextMenuEnabled = False
-        Me.wb.Location = New System.Drawing.Point(0, 23)
+        Me.wb.Location = New System.Drawing.Point(0, 40)
+        Me.wb.Margin = New System.Windows.Forms.Padding(0)
         Me.wb.MinimumSize = New System.Drawing.Size(20, 20)
         Me.wb.Name = "wb"
         Me.wb.ScriptErrorsSuppressed = True
         Me.wb.ScrollBarsEnabled = False
-        Me.wb.Size = New System.Drawing.Size(1064, 828)
+        Me.wb.Size = New System.Drawing.Size(1064, 811)
         Me.wb.TabIndex = 2
         '
         'Label1
@@ -258,11 +245,11 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(1007, 838)
+        Me.Label1.Location = New System.Drawing.Point(864, 838)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 13)
+        Me.Label1.Size = New System.Drawing.Size(200, 13)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Bing Maps"
+        Me.Label1.Text = "Bing Maps - Copyright @ Microsoft, 2020"
         '
         'Nav
         '
@@ -342,14 +329,12 @@ Partial Class Form1
         Me.Controls.Add(Me.Nav)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.wb)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Titlebar)
         Me.MaximumSize = New System.Drawing.Size(1080, 890)
         Me.Name = "Form1"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GetMap"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.Titlebar.ResumeLayout(False)
         Me.Titlebar.PerformLayout()
         Me.Nav.ResumeLayout(False)
@@ -357,10 +342,8 @@ Partial Class Form1
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents Titlebar As ToolStrip
     Friend WithEvents ToolStripButton1 As ToolStripButton
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ToolStripDropDownButton1 As ToolStripDropDownButton
     Friend WithEvents ChangeMapStyleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SatelliteToolStripMenuItem As ToolStripMenuItem
@@ -370,14 +353,9 @@ Partial Class Form1
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents StaticMapFasterToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButton2 As ToolStripButton
-    Friend WithEvents ToolStripDropDownButton2 As ToolStripDropDownButton
-    Friend WithEvents ToolStripTextBox1 As ToolStripTextBox
-    Friend WithEvents GoToCoordinatesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents wb As WebBrowser
-    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
     Friend WithEvents ZmIn As ToolStripButton
     Friend WithEvents ZmOu As ToolStripButton
-    Friend WithEvents Sept As ToolStripSeparator
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents Label1 As Label
     Friend WithEvents lbe As ToolStripLabel
@@ -387,4 +365,6 @@ Partial Class Form1
     Friend WithEvents KDN As Button
     Friend WithEvents KUP As Button
     Friend WithEvents ToolStripButton3 As ToolStripButton
+    Friend WithEvents ToolStripTextBox1 As ToolStripTextBox
+    Friend WithEvents ToolStripButton4 As ToolStripButton
 End Class
