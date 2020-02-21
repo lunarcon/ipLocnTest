@@ -11,13 +11,13 @@ Public Class Form1
     Dim n = 0
     Dim objShell = CreateObject("Shell.Application")
     Dim mtyp As String = "d"
-    Dim msty As String = "h"
+    Public msty As String = "h"
     Dim zm As Integer = 1
     Dim IsMouseDown As Boolean
     Dim startPoint
-    Dim delta As Double = 60
+    Dim delta As Double = 75
     Dim colorSystemAccent As UInteger = GetImmersiveColorFromColorSetEx(GetImmersiveUserColorSetPreference(False, False), GetImmersiveColorTypeFromName(Marshal.StringToHGlobalUni("ImmersiveSystemAccent")), False, 0)
-    Dim colorAccent As System.Drawing.Color = System.Drawing.Color.FromArgb((&HFF000000 And colorSystemAccent) >> 24, &HFF And colorSystemAccent, (&HFF00 And colorSystemAccent) >> 8, (&HFF0000 And colorSystemAccent) >> 16)
+    Public colorAccent As System.Drawing.Color = System.Drawing.Color.FromArgb((&HFF000000 And colorSystemAccent) >> 24, &HFF And colorSystemAccent, (&HFF00 And colorSystemAccent) >> 8, (&HFF0000 And colorSystemAccent) >> 16)
     Dim strPath As String = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
 
     <DllImport("Uxtheme.dll", SetLastError:=True, CharSet:=CharSet.Auto, EntryPoint:="#95")>
@@ -34,7 +34,7 @@ Public Class Form1
     Dim txtlong As String = "0"
     Private Watcher As GeoCoordinateWatcher = Nothing
     Dim inactivecolor As Color
-    Dim darkness As Double = 1 - ((0.299 * Int(colorAccent.R)) + (0.587 * Int(colorAccent.G)) + (0.114 * Int(colorAccent.B)))
+    Public darkness As Double = 1 - ((0.299 * Int(colorAccent.R)) + (0.587 * Int(colorAccent.G)) + (0.114 * Int(colorAccent.B)))
     Dim d2 As Double = 0
     Private Sub TitleBar_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Titlebar.MouseUp
         IsMouseDown = False
@@ -61,7 +61,6 @@ Public Class Form1
 
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TrafficToolStripMenuItem.Checked = True
         Navigate(0, 0, mtyp, msty, zm)
         ToolStripTextBox1.BackColor = colorAccent
         ' N2Loc("new delhi", mtyp, msty, 17)
@@ -79,7 +78,7 @@ Public Class Form1
         Next
     End Sub
 
-    Private Sub roundthethingy(oj As Object)
+    Public Sub roundthethingy(oj As Object)
         Dim p As New Drawing2D.GraphicsPath()
         p.StartFigure()
         p.AddEllipse(0, 0, oj.width, oj.width)
@@ -136,6 +135,9 @@ Public Class Form1
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        If Controls.Contains(h) Then
+            Controls.Remove(h)
+        End If
         If mtyp <> "d" Then
             Using bitmap As Bitmap = New Bitmap(wb.Width, wb.Height)
                 Dim bounds As Rectangle = New Rectangle(New Point(0, 0), wb.Size)
@@ -150,7 +152,7 @@ Public Class Form1
     Private Function TakeScreenShot() As Bitmap
         Dim tmpImg As New Bitmap(Width, Height)
         Using g As Graphics = Graphics.FromImage(tmpImg)
-            g.CopyFromScreen(PointToScreen(New Point(0, 25)), New Point(0, 25), New Size(Width - 20, Height - 63))
+            g.CopyFromScreen(PointToScreen(New Point(0, 43)), New Point(0, 43), New Size(Width - 20, Height - 83))
         End Using
         Return tmpImg
     End Function
@@ -174,41 +176,46 @@ Public Class Form1
 
     Private Sub SatelliteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SatelliteToolStripMenuItem.Click
         If sender.checked = False Then
-            If TrafficToolStripMenuItem.Checked = True Then
+            If h.Button3.Text = chk Then
                 msty = "h"
                 Navigate(txtlat, txtlong, mtyp, msty, zm)
             Else
                 msty = "a"
                 Navigate(txtlat, txtlong, mtyp, msty, zm)
             End If
-        Else
-            RoadToolStripMenuItem.PerformClick()
         End If
     End Sub
 
     Private Sub RoadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoadToolStripMenuItem.Click
         If sender.checked = False Then
             msty = "r"
-            TrafficToolStripMenuItem.Checked = True
+            h.Button3.Text = chk
             Navigate(txtlat, txtlong, mtyp, msty, zm)
-        Else
-            SatelliteToolStripMenuItem.PerformClick()
         End If
     End Sub
+    Dim chk As String = "", uchk As String = ""
+
+    'maptype = d - draggable    mapstyle = r - road with labels    mapstyle = a - aerial no labels
+    'maptype = s - static       mapstyle = h - aerial with labels
 
     Private Sub TrafficToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TrafficToolStripMenuItem.Click
-        If sender.checked = False And msty = "h" Then
+        If msty = "h" Then
+            h.Button3.Text = uchk
             msty = "a"
-            Navigate(0, 0, mtyp, msty, zm)
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
         ElseIf msty = "r" Then
-            sender.checked = True
-        Else
-            sender.checked = False
+            h.Button3.Text = chk
+        ElseIf msty = "a" Then
+            h.Button3.Text = chk
+            msty = "h"
+            Navigate(txtlat, txtlong, mtyp, msty, zm)
         End If
     End Sub
 
     Private Sub ToolStripTextBox1_Click(sender As Object, e As EventArgs) Handles ToolStripTextBox1.Click
-        sender.text = ""
+        If sender.text = "Search" Then
+            sender.text = ""
+        End If
     End Sub
     Private Sub GoToCoordinatesToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
@@ -295,14 +302,14 @@ Public Class Form1
         Dim cords As String = ToolStripTextBox1.Text
         Try
             txtlat = cords.Substring(0, cords.LastIndexOf(","))
-            txtlong = cords.Substring(cords.LastIndexOf(",") + 1)
+            txtlong = (Val(cords.Substring(cords.LastIndexOf(",") + 1)) + 5).ToString
             zm = 15
             Navigate(txtlat, txtlong, mtyp, msty, zm)
         Catch ex As Exception
             Try
                 Dim latlong = SearchCountry(cords)
                 txtlat = latlong.Substring(0, latlong.LastIndexOf(","))
-                txtlong = latlong.Substring(latlong.LastIndexOf(",") + 1)
+                txtlong = (Val(latlong.Substring(latlong.LastIndexOf(",") + 1)) + 5).ToString
                 zm = 5
                 Navigate(txtlat, txtlong, mtyp, msty, zm)
             Catch ey As Exception
@@ -317,11 +324,40 @@ Public Class Form1
         sender.backcolor = Color.White
     End Sub
 
+
+
     Private Sub ToolStripTextBox1_LostFocus(sender As Object, e As EventArgs) Handles ToolStripTextBox1.LostFocus
         sender.forecolor = Titlebar.ForeColor
         sender.backcolor = Titlebar.BackColor
+        If sender.text = "" Then
+            sender.text = "Search"
+        End If
     End Sub
+
+    Private Sub ToolStripTextBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles ToolStripTextBox1.KeyUp
+        If e.KeyCode = Keys.Enter Then
+            ToolStripButton4.PerformClick()
+            sender.forecolor = Titlebar.ForeColor
+            sender.backcolor = Titlebar.BackColor
+        End If
+    End Sub
+    Dim h As New cmenu
+
+    Private Sub Titlebar_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles Titlebar.ItemClicked
+
+    End Sub
+
+    Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
+        If Controls.Contains(h) = False Then
+            Controls.Add(h)
+            h.BringToFront()
+
+            h.Location = New Point(Width - h.Width - 10, sender.height)
+        Else
+            Controls.Remove(h)
+        End If
+    End Sub
+
+
 End Class
 
-'maptype = d - draggable    mapstyle = r - road     mapstyle = a - aerial no labels
-'maptype = s - static       mapstyle = h - aerial

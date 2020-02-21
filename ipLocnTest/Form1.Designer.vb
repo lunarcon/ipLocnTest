@@ -25,8 +25,8 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Titlebar = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ZmIn = New System.Windows.Forms.ToolStripButton()
         Me.ZmOu = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
@@ -41,6 +41,7 @@ Partial Class Form1
         Me.TrafficToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.StaticMapFasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.wb = New System.Windows.Forms.WebBrowser()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Nav = New System.Windows.Forms.Panel()
@@ -57,7 +58,7 @@ Partial Class Form1
         Me.Titlebar.AutoSize = False
         Me.Titlebar.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Titlebar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.Titlebar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ZmIn, Me.ZmOu, Me.ToolStripLabel1, Me.lbe, Me.ToolStripTextBox1, Me.ToolStripButton4, Me.ToolStripDropDownButton1})
+        Me.Titlebar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton3, Me.ToolStripButton2, Me.ZmIn, Me.ZmOu, Me.ToolStripLabel1, Me.lbe, Me.ToolStripTextBox1, Me.ToolStripButton4, Me.ToolStripDropDownButton1, Me.ToolStripButton5})
         Me.Titlebar.Location = New System.Drawing.Point(0, 0)
         Me.Titlebar.Name = "Titlebar"
         Me.Titlebar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
@@ -78,19 +79,6 @@ Partial Class Form1
         Me.ToolStripButton1.Text = ""
         Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay
         '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.AutoToolTip = False
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton2.Font = New System.Drawing.Font("Segoe MDL2 Assets", 15.0!)
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 2)
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(33, 38)
-        Me.ToolStripButton2.Text = ""
-        Me.ToolStripButton2.ToolTipText = "Locate me"
-        '
         'ToolStripButton3
         '
         Me.ToolStripButton3.AutoToolTip = False
@@ -103,6 +91,19 @@ Partial Class Form1
         Me.ToolStripButton3.Size = New System.Drawing.Size(28, 38)
         Me.ToolStripButton3.Text = ""
         Me.ToolStripButton3.ToolTipText = "Refresh"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.AutoToolTip = False
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton2.Font = New System.Drawing.Font("Segoe MDL2 Assets", 15.0!)
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 2)
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(33, 38)
+        Me.ToolStripButton2.Text = ""
+        Me.ToolStripButton2.ToolTipText = "Locate me"
         '
         'ZmIn
         '
@@ -138,8 +139,7 @@ Partial Class Form1
         '
         Me.ToolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(225, 37)
-        Me.ToolStripLabel1.Text = "Bing Maps - Copyright @ Microsoft, 2020"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(0, 37)
         Me.ToolStripLabel1.Visible = False
         '
         'lbe
@@ -151,12 +151,12 @@ Partial Class Form1
         '
         'ToolStripTextBox1
         '
-        Me.ToolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ToolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ToolStripTextBox1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.ToolStripTextBox1.Margin = New System.Windows.Forms.Padding(10, 0, 5, 2)
         Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
         Me.ToolStripTextBox1.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.ToolStripTextBox1.Size = New System.Drawing.Size(189, 38)
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(141, 38)
         Me.ToolStripTextBox1.Text = "Search"
         '
         'ToolStripButton4
@@ -180,8 +180,8 @@ Partial Class Form1
         Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(89, 37)
-        Me.ToolStripDropDownButton1.Text = "Map Options"
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(13, 37)
+        Me.ToolStripDropDownButton1.Visible = False
         '
         'ChangeMapStyleToolStripMenuItem
         '
@@ -225,6 +225,20 @@ Partial Class Form1
         Me.StaticMapFasterToolStripMenuItem.Name = "StaticMapFasterToolStripMenuItem"
         Me.StaticMapFasterToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.StaticMapFasterToolStripMenuItem.Text = "Static Map"
+        '
+        'ToolStripButton5
+        '
+        Me.ToolStripButton5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripButton5.AutoToolTip = False
+        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton5.Font = New System.Drawing.Font("Segoe MDL2 Assets", 13.0!)
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
+        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton5.Margin = New System.Windows.Forms.Padding(5, 0, 5, 2)
+        Me.ToolStripButton5.Name = "ToolStripButton5"
+        Me.ToolStripButton5.Size = New System.Drawing.Size(30, 38)
+        Me.ToolStripButton5.Text = ""
+        Me.ToolStripButton5.ToolTipText = "Map Settings"
         '
         'wb
         '
@@ -367,4 +381,5 @@ Partial Class Form1
     Friend WithEvents ToolStripButton3 As ToolStripButton
     Friend WithEvents ToolStripTextBox1 As ToolStripTextBox
     Friend WithEvents ToolStripButton4 As ToolStripButton
+    Friend WithEvents ToolStripButton5 As ToolStripButton
 End Class
