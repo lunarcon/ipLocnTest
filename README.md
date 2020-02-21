@@ -2,7 +2,7 @@
 Get decently featured maps in .NET, without any actual mapping API involved in your end!
 
 <p align="center">
-  <img src="ipLocnTest/preview.png" width="800">
+  <img src="ipLocnTest/preview1.png" width="800">
 </p>
 
 - Supports Satellite view (with and without labels) and Regular view (with labels).
@@ -12,7 +12,13 @@ Get decently featured maps in .NET, without any actual mapping API involved in y
 - Saves image directly to your desktop
 
 ## Latest Additions
-- 🆕 Updated toolbar.
+<ul>
+  <li> 🆕 Redesigned map options menu.
+</ul><br>
+<p align = "center">
+  <img src="ipLocnTest/img2.png" width="400">
+</p><br>
+- 🆕 Redesigned toolbar.
 <ul>
   <li> 🆕 Now you can search for countries too, along with the regular coordinate search.
 </ul><br>
