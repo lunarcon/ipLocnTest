@@ -12,13 +12,13 @@ Get decently featured maps in .NET, without any actual mapping API involved in y
 - Saves image directly to your desktop
 
 ## Latest Additions
+- 🆕 Redesigned toolbar.
 <ul>
   <li> 🆕 Redesigned map options menu.
 </ul><br>
 <p align = "center">
   <img src="ipLocnTest/img2.png" width="400">
 </p><br>
-- 🆕 Redesigned toolbar.
 <ul>
   <li> 🆕 Now you can search for countries too, along with the regular coordinate search.
 </ul><br>
