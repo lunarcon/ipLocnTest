@@ -26,12 +26,6 @@ Get decently featured maps in .NET, without any actual mapping API involved in y
   <img src="ipLocnTest/nv.png" width="400">
 </p><br>
 <ul>
-<li>🆕 Menu items now have icons.
-</ul><br>
-<p align = "center">
-  <img src="ipLocnTest/nbar.png" width="400">
-</p>
-<ul>
 <li> Improved zoom in static map.<br>
 <li> Added Navigation hints to toolbar.<br>
 <li> Minor design change.<br>
