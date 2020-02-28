@@ -116,13 +116,7 @@ Public Class Form1
 
     Private Sub Navigate(lati As String, longi As String, maptype As String, mapstyle As String, zoom As Integer)
         wb.Navigate("https://www.bing.com/maps/embed?h=" & (wb.Height + 28).ToString & "&w=" & (wb.Width + 300).ToString & "&cp=" & lati & "~" & longi & "&lvl=" & zoom.ToString & "&typ=" & maptype & "&sty=" & mapstyle & "&src=SHELL&FORM=MBEDV8")
-
     End Sub
-
-    ' Private Sub N2Loc(locn As String, maptype As String, mapstyle As String, zoom As Integer)
-    '     'locn = locn.Replace(" ", "%20")
-    '     wb.Navigate("https://www.bing.com/maps?v=2&where1=" & locn & "&h=" & (wb.Height + 28).ToString & "&w=" & (wb.Width + 300).ToString & "&lvl=" & zoom.ToString & "&typ=" & maptype & "&sty=" & mapstyle & "&src=SHELL&FORM=MBEDV8")
-    ' End Sub
 
     Private Sub wb_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles wb.DocumentCompleted
         ' MsgBox(wb.Document.Body.Children.GetElementsByName("container").Item(1).GetElementsByTagName("<div>").GetElementsByName("mapContainer").GetElementsByName("MicrosoftMap").Item(1).InnerHtml)
@@ -298,6 +292,15 @@ Public Class Form1
         Return latlong
     End Function
 
+    Private Function SearchCity(cname As String) As String
+        Dim latlong As String = ""
+        cname = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(cname)
+        Dim json As String = File.ReadAllLines(strPath.Replace("file:\", "") & "\cities.json").FirstOrDefault(Function(x) x.Contains(My.Resources.st1 + cname + My.Resources.st1)).TrimEnd(",")
+        Dim read = JObject.Parse(json)
+        latlong = (read.Item("lat").ToString + "," + read.Item("lng").ToString).Replace(" ", "")
+        Return latlong
+    End Function
+
     Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
         Dim cords As String = ToolStripTextBox1.Text
         Try
@@ -313,7 +316,15 @@ Public Class Form1
                 zm = 5
                 Navigate(txtlat, txtlong, mtyp, msty, zm)
             Catch ey As Exception
-                MessageBox.Show("Could not find input country or coordinates." & vbNewLine & vbNewLine & "To search for a country, consider trying an alternate or more precise name." & vbNewLine & "To search for coordinates, they need to be comma separated without spaces.", "Search failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Try
+                    Dim latlong = SearchCity(cords)
+                    txtlat = latlong.Substring(0, latlong.LastIndexOf(","))
+                    txtlong = (Val(latlong.Substring(latlong.LastIndexOf(",") + 1)) + 0.075).ToString
+                    zm = 10
+                    Navigate(txtlat, txtlong, mtyp, msty, zm)
+                Catch ez As Exception
+                    MessageBox.Show("Could not find input country or coordinates." & vbNewLine & vbNewLine & "To search for a country, consider trying an alternate or more precise name." & vbNewLine & "To search for coordinates, they need to be comma separated without spaces.", "Search failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End Try
             End Try
         End Try
         ToolStripTextBox1.Text = "Search"
@@ -323,8 +334,6 @@ Public Class Form1
         sender.Forecolor = Color.Black
         sender.backcolor = Color.White
     End Sub
-
-
 
     Private Sub ToolStripTextBox1_LostFocus(sender As Object, e As EventArgs) Handles ToolStripTextBox1.LostFocus
         sender.forecolor = Titlebar.ForeColor

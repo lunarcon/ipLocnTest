@@ -156,7 +156,7 @@ Partial Class Form1
         Me.ToolStripTextBox1.Margin = New System.Windows.Forms.Padding(10, 0, 5, 2)
         Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
         Me.ToolStripTextBox1.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.ToolStripTextBox1.Size = New System.Drawing.Size(141, 38)
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(139, 38)
         Me.ToolStripTextBox1.Text = "Search"
         '
         'ToolStripButton4

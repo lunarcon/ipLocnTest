@@ -139,6 +139,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="cities.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="countries.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
