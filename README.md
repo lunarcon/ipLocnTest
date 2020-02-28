@@ -20,7 +20,7 @@ Get decently featured maps in .NET, without any actual mapping API involved in y
   <img src="ipLocnTest/img2.png" width="400">
 </p><br>
 <ul>
-  <li> 🆕 Now you can search for countries too, along with the regular coordinate search.
+  <li> 🆕 Now you can search for cities AND countries, along with the regular coordinate search!
 </ul><br>
 <p align = "center">
   <img src="ipLocnTest/img1.png" width="400">
