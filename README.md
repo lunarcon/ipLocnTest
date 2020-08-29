@@ -7,7 +7,7 @@ Get decently featured maps in .NET, without any actual mapping API involved in y
 
 - Supports Satellite view (with and without labels) and Regular view (with labels).
 - Default Draggable (Through left mouse button) and Zoomable (Through Scroll Wheel), But also provides static mode (higher resolution) (with buttons for zoom, etc)
-- Navigates to given coordinates
+- Navigates to given coordinates and name of city/ country.
 - Supports Geolocation (PS: sometimes it doesn't work on the first try)(also your location should be on)
 - Saves image directly to your desktop
 
